@@ -2,7 +2,7 @@ const Monument = require('../models/MonumentModel')
 
 
 function getMonument(req,res){
-    Monument.findOne({'name': req.query.name})
+    Monument.findOne({'latitude': req.query.lat})
     .then(monument => {
         if(!monument){
             res.json({
