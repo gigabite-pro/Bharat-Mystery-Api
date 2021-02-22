@@ -5,7 +5,6 @@ const path = require('path')
 require('dotenv').config()
 const Monument = require('./models/MonumentModel')
 
-const mongoURI = 
 
 mongoose.connect(`mongodb+srv://Chin2:Vaibhav19@bharat-mystery.jzmpd.mongodb.net/monuments?retryWrites=true&w=majority`, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
