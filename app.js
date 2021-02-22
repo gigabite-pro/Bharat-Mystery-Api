@@ -22,6 +22,10 @@ const monumentsRouter = require('./routes/monuments')
 
 app.use('/', monumentsRouter);
 
+app.get('/', (req,res) => {
+	res.send('Welcome to the API')
+})
+
 app.get('/putData', (req,res) => {
 	res.render('putData')
 })
