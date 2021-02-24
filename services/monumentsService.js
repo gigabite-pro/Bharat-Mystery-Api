@@ -2,7 +2,9 @@ const Monument = require('../models/MonumentModel')
 
 
 function getMonument(req,res){
-    Monument.findOne({'latitude': req.query.lat})
+    var Snumber = req.query.sno
+    console.log(Snumber)
+    Monument.findOne({'Snumber': Snumber})
     .then(monument => {
         if(!monument){
             res.json({

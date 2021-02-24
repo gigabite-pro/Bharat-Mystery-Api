@@ -1,15 +1,15 @@
 const express = require('express');
 const app = express();
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 const path = require('path')
 require('dotenv').config()
 const Monument = require('./models/MonumentModel')
 
 
-mongoose.connect(`mongodb+srv://Chin2:${process.env.DB_PASSWORD}@bharat-mystery.jzmpd.mongodb.net/monuments?retryWrites=true&w=majority`, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => {
-        console.log("DB connected.")
-    });
+
+mongoose.connect(`mongodb+srv://Chin2:${process.env.DB_PASSWORD}@bharat-mystery.jzmpd.mongodb.net/monuments?retryWrites=true&w=majority`,{ useNewUrlParser: true , useUnifiedTopology:true})
+.then((result)=> console.log(`db connected...`))
+.catch((err)=> console.log(err));
 
 
 app.use(express.json());
