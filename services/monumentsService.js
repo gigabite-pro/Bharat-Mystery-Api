@@ -25,4 +25,30 @@ function getMonument(req,res){
     .catch(err => console.log(err))
 }
 
-module.exports = {getMonument};
+function getAll(req,res){
+    Monument.find({})
+    .then((allmonuments) => {
+        if(!allmonuments){
+            res.json({
+                error: 'Some Error Occurred'
+            })
+        }
+
+        const response = [];
+
+        for(let i = 0; i< allmonuments.length; i++){
+            response.push({
+                'name': allmonuments[i].name,
+                'Snumber': allmonuments[i].Snumber
+            })
+        }
+
+        res.json(response)
+    })
+    .catch((err)=> console.log(err))
+}
+
+module.exports = {
+    getMonument,
+    getAll
+};
