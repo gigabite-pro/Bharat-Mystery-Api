@@ -30,6 +30,7 @@ app.get('/putData', (req,res) => {
 })
 
 app.post('/postData', (req,res) => {
+	var Snumber = req.body.Snumber;
 	var name = req.body.name;
 	var place = req.body.place;
 	var image = req.body.image;
@@ -40,6 +41,7 @@ app.post('/postData', (req,res) => {
 	console.log(req.body)
 
 	newMonument = new Monument({
+		'Snumber': Snumber,
 		'name': name,
 		'place' : place,
 		'image': image,
