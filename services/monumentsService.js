@@ -34,7 +34,7 @@ function getAll(req,res){
             })
         }
 
-        const response = {};
+        const response = [];
 
         for(let i = 0; i< allmonuments.length; i++){
             response.push({
