@@ -19,6 +19,7 @@ function getMonument(req,res){
             "latitude" : monument.latitude,
             "longitude" : monument.longitude,
             "info" : monument.info,
+            "streetview": monument.streetview,
         }
         res.json(result);
     })
@@ -27,6 +28,7 @@ function getMonument(req,res){
 
 function getAll(req,res){
     Monument.find({})
+    .exec()
     .then((allmonuments) => {
         if(!allmonuments){
             res.json({

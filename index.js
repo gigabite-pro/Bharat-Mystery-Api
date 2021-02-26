@@ -56,7 +56,22 @@ app.post('/postData', (req,res) => {
 	})
     .catch((err)=> console.log(err));
 
-})
+});
+
+app.post('/updateData', (req,res) => {
+	var snumber = req.body.Snumber;
+	var streetview = req.body.streetview;
+
+	Monument.updateOne({Snumber : snumber}, {
+		$set: {
+			streetview: streetview
+		}
+	})
+	.then(() => {
+		res.send('Updated db')
+	})
+	.catch((err) => console.log(err))
+});
 
 const PORT = process.env.PORT || 3000;
 

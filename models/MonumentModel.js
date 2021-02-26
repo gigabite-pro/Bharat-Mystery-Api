@@ -17,6 +17,11 @@ const monumentSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    streetview : {
+        type: String,
+        required: true,
+        default: "",
+    },
     latitude: {
         type: Number,
         required: true
