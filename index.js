@@ -30,7 +30,15 @@ app.get('/putData', (req,res) => {
 })
 
 app.get('/map', (req,res) => {
-	res.render('map', {end : [77.1833319,28.5244754]})
+	var slong = req.query.slong
+	var slat = req.query.slat
+	var elong = req.query.elong
+	var elat = req.query.elat
+
+	res.render('map', {
+		end : [elong , elat],
+		start : [slong , slat]
+	})
 })
 
 app.post('/postData', (req,res) => {

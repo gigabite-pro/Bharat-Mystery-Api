@@ -52,10 +52,9 @@
     
     </div>
     <h2 style="display: none;" id="end"><%=end %></h2>
+    <h2 style="display: none;" id="start"><%=start %></h2>
     <script>
         mapboxgl.accessToken = 'pk.eyJ1IjoiY2hpbTIiLCJhIjoiY2tsZXBjOWI1MTJvczJ2bWpiZWE5azNlNyJ9.-LB_CjjYIksqNZTdiSmFNg';
-
-        var start = [76.952783,28.4258344]; // starting point
 
             const map = new mapboxgl.Map({
             container: 'map',
@@ -64,6 +63,12 @@
             zoom: 14,
         });
         map.addControl(new mapboxgl.NavigationControl());
+
+        var startdata = document.getElementById('start').innerHTML.split(","); 
+        var start = []
+        for(i=0; i< startdata.length;i++){
+            start.push(parseFloat(startdata[i]))
+        } // starting point
 
         var canvas = map.getCanvasContainer();
 
@@ -155,11 +160,12 @@
                     'circle-color': '#3887be'
                     }
                 });
-                    var data = document.getElementById('end').innerHTML.split(","); // ending point
+
+                    var enddata = document.getElementById('end').innerHTML.split(","); 
                     var coords = []
-                    for(i=0; i<data.length;i++){
-                        coords.push(parseFloat(data[i]))
-                    }
+                    for(i=0; i< enddata.length;i++){
+                        coords.push(parseFloat(enddata[i]))
+                    } // ending point
 
                     var end = {
                         type: 'FeatureCollection',
