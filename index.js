@@ -22,11 +22,15 @@ const monumentsRouter = require('./routes/monuments')
 app.use('/', monumentsRouter);
 
 app.get('/', (req,res) => {
-	res.send('Welcome to the API')
+	res.send('Welcome to the Bharat Mystery API')
 })
 
 app.get('/putData', (req,res) => {
 	res.render('putData')
+})
+
+app.get('/map', (req,res) => {
+	res.render('map', {end : [77.1833319,28.5244754]})
 })
 
 app.post('/postData', (req,res) => {
