@@ -50,7 +50,25 @@ function getAll(req,res){
     .catch((err)=> console.log(err))
 }
 
+function getQuiz(req,res){
+    var Snumber = req.query.sno;
+    Monument.findOne({Snumber: Snumber})
+    .then((monument) => {
+        if(!monument){
+            res.json({
+                error: 'Some Error Occurred'
+            })
+        }
+
+        const response = monument.quiz;
+
+        res.json(response)
+    })
+    .catch((err)=> console.log(err))
+}
+
 module.exports = {
     getMonument,
-    getAll
+    getAll,
+    getQuiz
 };

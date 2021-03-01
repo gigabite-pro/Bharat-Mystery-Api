@@ -9,4 +9,8 @@ router.get('/allmonuments', (req,res) => {
 	monumentService.getAll(req,res);
 })
 
+router.get('/quiz', (req,res) => {
+	monumentService.getQuiz(req,res);
+})
+
 module.exports = router;

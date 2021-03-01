@@ -79,12 +79,12 @@ app.post('/updateData', (req,res) => {
 
 	var quiz = []
 
-	quiz.push({q1 : ques[0], a1 : ans[0]})
-	quiz.push({q2 : ques[1], a2 : ans[1]})
-	quiz.push({q3 : ques[2], a3 : ans[2]})
-
-	console.log(quiz)
-	
+	for(i=0; i <ques.length;i++){
+		quiz.push({
+			ques: ques[i],
+			ans: ans[i]
+		})
+	}
 
 	Monument.updateOne({Snumber : snumber}, {
 		$set: {
