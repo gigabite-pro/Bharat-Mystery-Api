@@ -72,11 +72,23 @@ app.post('/postData', (req,res) => {
 
 app.post('/updateData', (req,res) => {
 	var snumber = req.body.Snumber;
-	var streetview = req.body.streetview;
+	var ques = req.body.questions;
+	ques = ques.split(',')
+	var ans = req.body.answers;
+	ans = ans.split(',')
+
+	var quiz = []
+
+	quiz.push({q1 : ques[0], a1 : ans[0]})
+	quiz.push({q2 : ques[1], a2 : ans[1]})
+	quiz.push({q3 : ques[2], a3 : ans[2]})
+
+	console.log(quiz)
+	
 
 	Monument.updateOne({Snumber : snumber}, {
 		$set: {
-			streetview: streetview
+			quiz : quiz
 		}
 	})
 	.then(() => {

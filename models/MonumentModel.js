@@ -22,6 +22,11 @@ const monumentSchema = new mongoose.Schema({
         required: true,
         default: "",
     },
+    quiz : {
+        type: Array,
+        required : true,
+        default: []
+    },
     latitude: {
         type: Number,
         required: true
