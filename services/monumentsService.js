@@ -11,7 +11,7 @@ function getMonument(req,res){
                 error : "No Monument Found"
             });
         }
-
+        
         const result = {
             "name" : monument.name,
             "place" : monument.place,
@@ -20,6 +20,7 @@ function getMonument(req,res){
             "longitude" : monument.longitude,
             "info" : monument.info,
             "streetview": monument.streetview,
+            "ytUrl": monument.ytUrl
         }
         res.json(result);
     })
