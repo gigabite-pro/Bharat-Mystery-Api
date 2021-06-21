@@ -39,6 +39,10 @@ const monumentSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    ytUrl: {
+        type: String,
+        required: false,
+    }
 });
 
 const Monument = new mongoose.model('Monument', monumentSchema);
