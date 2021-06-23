@@ -12,7 +12,6 @@ function getMonument(req,res){
             });
         }
 
-        console.log(monument.ytUrl)
         const result = {
             "name" : monument.name,
             "place" : monument.place,

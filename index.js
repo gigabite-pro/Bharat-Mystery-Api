@@ -25,9 +25,9 @@ app.get('/', (req,res) => {
 	res.send('Welcome to the Bharat Mystery API')
 })
 
-// app.get('/putData', (req,res) => {
-// 	res.render('putData')
-// })
+app.get('/putData', (req,res) => {
+	res.render('putData')
+})
 
 app.get('/map', (req,res) => {
 	var slong = req.query.slong
@@ -41,61 +41,61 @@ app.get('/map', (req,res) => {
 	})
 })
 
-// app.post('/postData', (req,res) => {
-// 	var Snumber = req.body.Snumber;
-// 	var name = req.body.name;
-// 	var place = req.body.place;
-// 	var image = req.body.image;
-// 	var latitude = req.body.latitude;
-// 	var longitude = req.body.longitude;
-// 	var info = req.body.info;
+app.post('/postData', (req,res) => {
+	var Snumber = req.body.Snumber;
+	var name = req.body.name;
+	var place = req.body.place;
+	var image = req.body.image;
+	var latitude = req.body.latitude;
+	var longitude = req.body.longitude;
+	var info = req.body.info;
 
-// 	console.log(req.body)
+	console.log(req.body)
 
-// 	newMonument = new Monument({
-// 		'Snumber': Snumber,
-// 		'name': name,
-// 		'place' : place,
-// 		'image': image,
-// 		'latitude': latitude,
-// 		'longitude': longitude,
-// 		'info': info
-// 	});
+	newMonument = new Monument({
+		'Snumber': Snumber,
+		'name': name,
+		'place' : place,
+		'image': image,
+		'latitude': latitude,
+		'longitude': longitude,
+		'info': info
+	});
 
-// 	newMonument.save()
-//     .then(() => {
-// 		res.send('Added to db');
-// 	})
-//     .catch((err)=> console.log(err));
+	newMonument.save()
+    .then(() => {
+		res.send('Added to db');
+	})
+    .catch((err)=> console.log(err));
 
-// });
+});
 
-// app.post('/updateData', (req,res) => {
-// 	var snumber = req.body.Snumber;
-// 	var ques = req.body.questions;
-// 	ques = ques.split(',')
-// 	var ans = req.body.answers;
-// 	ans = ans.split(',')
+app.post('/updateData', (req,res) => {
+	var snumber = req.body.Snumber;
+	var ques = req.body.questions;
+	ques = ques.split(',')
+	var ans = req.body.answers;
+	ans = ans.split(',')
 
-// 	var quiz = []
+	var quiz = []
 
-// 	for(i=0; i <ques.length;i++){
-// 		quiz.push({
-// 			ques: ques[i],
-// 			ans: ans[i]
-// 		})
-// 	}
+	for(i=0; i <ques.length;i++){
+		quiz.push({
+			ques: ques[i],
+			ans: ans[i]
+		})
+	}
 
-// 	Monument.updateOne({Snumber : snumber}, {
-// 		$set: {
-// 			quiz : quiz
-// 		}
-// 	})
-// 	.then(() => {
-// 		res.send('Updated db')
-// 	})
-// 	.catch((err) => console.log(err))
-// });
+	Monument.updateOne({Snumber : snumber}, {
+		$set: {
+			quiz : quiz
+		}
+	})
+	.then(() => {
+		res.send('Updated db')
+	})
+	.catch((err) => console.log(err))
+});
 
 app.get('/arview', (req,res) => {
 	res.render('ar');
