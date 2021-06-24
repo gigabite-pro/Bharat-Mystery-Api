@@ -21,6 +21,7 @@ function getMonument(req,res){
             "info" : monument.info,
             "streetview": monument.streetview,
             "ytUrl": monument.ytUrl,
+            "moreInfo": monument.moreInfo
         }
         res.json(result);
     })
