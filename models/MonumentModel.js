@@ -42,6 +42,9 @@ const monumentSchema = new mongoose.Schema({
     ytUrl: {
         type: String,
         required: false,
+    },
+    moreInfo: {
+        type: String,
     }
 });
 
