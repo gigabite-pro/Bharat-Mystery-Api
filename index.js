@@ -25,65 +25,65 @@ app.get('/', (req,res) => {
 	res.send('Welcome to the Bharat Mystery API')
 })
 
-app.get('/putData', (req,res) => {
-	res.render('putData')
-})
+// app.get('/putData', (req,res) => {
+// 	res.render('putData')
+// })
 
-app.get('/map', (req,res) => {
-	var slong = req.query.slong
-	var slat = req.query.slat
-	var elong = req.query.elong
-	var elat = req.query.elat
+// app.get('/map', (req,res) => {
+// 	var slong = req.query.slong
+// 	var slat = req.query.slat
+// 	var elong = req.query.elong
+// 	var elat = req.query.elat
 
-	res.render('map', {
-		end : [elong , elat],
-		start : [slong , slat]
-	})
-})
+// 	res.render('map', {
+// 		end : [elong , elat],
+// 		start : [slong , slat]
+// 	})
+// })
 
-app.post('/postData', (req,res) => {
-	var Snumber = req.body.Snumber;
-	var name = req.body.name;
-	var place = req.body.place;
-	var image = req.body.image;
-	var latitude = req.body.latitude;
-	var longitude = req.body.longitude;
-	var info = req.body.info;
+// app.post('/postData', (req,res) => {
+// 	var Snumber = req.body.Snumber;
+// 	var name = req.body.name;
+// 	var place = req.body.place;
+// 	var image = req.body.image;
+// 	var latitude = req.body.latitude;
+// 	var longitude = req.body.longitude;
+// 	var info = req.body.info;
 
-	console.log(req.body)
+// 	console.log(req.body)
 
-	newMonument = new Monument({
-		'Snumber': Snumber,
-		'name': name,
-		'place' : place,
-		'image': image,
-		'latitude': latitude,
-		'longitude': longitude,
-		'info': info
-	});
+// 	newMonument = new Monument({
+// 		'Snumber': Snumber,
+// 		'name': name,
+// 		'place' : place,
+// 		'image': image,
+// 		'latitude': latitude,
+// 		'longitude': longitude,
+// 		'info': info
+// 	});
 
-	newMonument.save()
-    .then(() => {
-		res.send('Added to db');
-	})
-    .catch((err)=> console.log(err));
+// 	newMonument.save()
+//     .then(() => {
+// 		res.send('Added to db');
+// 	})
+//     .catch((err)=> console.log(err));
 
-});
+// });
 
-app.post('/updateData', (req,res) => {
-	var snumber = req.body.Snumber;
-	var info = req.body.info;
+// app.post('/updateData', (req,res) => {
+// 	var snumber = req.body.Snumber;
+// 	var info = req.body.info;
 
-	Monument.updateOne({Snumber : snumber}, {
-		$set: {
-			moreInfo : info
-		}
-	})
-	.then(() => {
-		res.send('Updated db')
-	})
-	.catch((err) => console.log(err))
-});
+// 	Monument.updateOne({Snumber : snumber}, {
+// 		$set: {
+// 			moreInfo : info
+// 		}
+// 	})
+// 	.then(() => {
+// 		res.send('Updated db')
+// 	})
+// 	.catch((err) => console.log(err))
+// });
 
 app.get('/arview', (req,res) => {
 	res.render('ar');
